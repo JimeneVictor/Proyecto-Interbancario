@@ -1,24 +1,24 @@
 package proyectointregradorbanca;
 
 public class Gerente {
-    private String noGerente;
+    private String noCuenta;
     private String nombre;
     private String contacto;
     private Gerente siguiente;
     private Gerente anterior;
 
-    public Gerente(String noGerente, String nombre, String contacto) {
-        this.noGerente = noGerente;
+    public Gerente(String noCuenta, String nombre, String contacto) {
+        this.noCuenta = noCuenta;
         this.nombre = nombre;
         this.contacto = contacto;
     }
 
     public String getNoGerente() {
-        return noGerente;
+        return noCuenta;
     }
 
     public void setNoGerente(String noGerente) {
-        this.noGerente = noGerente;
+        this.noCuenta = noGerente;
     }
 
     public String getNombre() {
@@ -55,7 +55,7 @@ public class Gerente {
 
     @Override
     public String toString() {
-        return "noGerente: " + noGerente + "\n" + "Nombre: " + nombre + "\n" + "Contacto: " + contacto + "\n";
+        return "noCuenta: " + noCuenta + "\n" + "Nombre: " + nombre + "\n" + "Contacto: " + contacto + "\n";
     }
     
 }
