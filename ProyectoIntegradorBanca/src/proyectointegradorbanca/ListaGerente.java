@@ -5,6 +5,8 @@ public class ListaGerente {
     private Gerente fin;
 
     public ListaGerente() {
+        inicio = null;
+        fin = null;
     }
 
     public Gerente getInicio() {
@@ -22,41 +24,49 @@ public class ListaGerente {
     public void setFin(Gerente fin) {
         this.fin = fin;
     }
-    //Insetar al final
-    public void insertar(String noGerente, String nombre, String contacto){
-        Gerente nuevo = new Gerente (noGerente, nombre, contacto);
-        if (this.getInicio()== null){
-            this.getFin().setSiguiente(nuevo);
-            nuevo.setAnterior(this.getFin());
-            this.setFin(nuevo);
-        }
-        else{
-            this.setInicio(nuevo);
-            this.setFin(nuevo);
+
+    public void agregarGerente(String noCuenta, String nombre, String contacto) {
+        Gerente nuevo = new Gerente(noCuenta, nombre, contacto);
+        if (inicio == null) {
+            inicio = nuevo;
+            fin = nuevo;
+        } else {
+            fin.setSiguiente(nuevo);
+            nuevo.setAnterior(fin);
+            fin = nuevo;
         }
     }
-    //Mostrar de Inicio-Fin
+
+    public void eliminarGerente(String noCuenta) {
+        Gerente actual = inicio;
+        while (actual != null) {
+            if (actual.getNoGerente().equalsIgnoreCase(noCuenta)) {
+                if (actual == inicio && actual == fin) {
+                    inicio = null;
+                    fin = null;
+                } else if (actual == inicio) {
+                    inicio = actual.getSiguiente();
+                    inicio.setAnterior(null);
+                } else if (actual == fin) {
+                    fin = fin.getAnterior();
+                    fin.setSiguiente(null);
+                } else {
+                    actual.getAnterior().setSiguiente(actual.getSiguiente());
+                    actual.getSiguiente().setAnterior(actual.getAnterior());
+                }
+                System.out.println("Gerente eliminado correctamente.");
+                return;
+            }
+            actual = actual.getSiguiente();
+        }
+        System.out.println("No se encontró ningún gerente con ese número de cuenta.");
+    }
+
     public void mostrar() {
-       Gerente actual = this.getInicio();
-        //Mostrar Inicio-Fin
+        Gerente actual = inicio;
         while (actual != null) {
             System.out.println(actual.toString());
             actual = actual.getSiguiente();
-            }
         }
-    //Buscar por Numero
-    public void buscarPorNumero(String noGerente) {
-    Gerente actual = inicio;
-    boolean encontrado = false;
-    while (actual != null) {
-        if (actual.getNoGerente().equalsIgnoreCase(noGerente)) {
-            System.out.println(actual.toString());
-            encontrado = true;
-        }
-        actual = actual.getSiguiente();
     }
-    if (!encontrado) {
-        System.out.println("No se encontraron alimentos con el numero'" + noGerente + "'.");
-    }
-}
 }
