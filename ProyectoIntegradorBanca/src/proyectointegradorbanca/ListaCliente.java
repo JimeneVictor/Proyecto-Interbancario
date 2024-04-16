@@ -1,4 +1,4 @@
-package proyectointegradorbanca;
+package proyectointregradorbanca;
 
     public class ListaCliente {
     private Cliente inicio;
@@ -62,9 +62,7 @@ package proyectointegradorbanca;
     }
     // Si llegamos aquí, significa que no se encontró la cuenta
     System.out.println("La cuenta " + noCuenta + " no existe.");
-}
-
-    
+    }
     public void consultar(int noCuenta) {
     Cliente clienteActual = inicio;
     while (clienteActual != null) {
