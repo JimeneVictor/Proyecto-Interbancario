@@ -56,6 +56,5 @@ public class Gerente {
     @Override
     public String toString() {
         return "noCuenta: " + noCuenta + "\n" + "Nombre: " + nombre + "\n" + "Contacto: " + contacto + "\n";
-    }
-    
+    } 
 }
