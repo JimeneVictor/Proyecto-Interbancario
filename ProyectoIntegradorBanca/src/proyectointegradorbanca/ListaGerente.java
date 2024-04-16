@@ -1,69 +1,71 @@
 package proyectointregradorbanca;
-
 public class ListaGerente {
-    private Gerente inicio;
-    private Gerente fin;
+    private Cliente inicio;
+    private Cliente fin;
 
     public ListaGerente() {
         inicio = null;
         fin = null;
     }
 
-    public Gerente getInicio() {
+    public Cliente getInicio() {
         return inicio;
     }
 
-    public void setInicio(Gerente inicio) {
+    public void setInicio(Cliente inicio) {
         this.inicio = inicio;
     }
 
-    public Gerente getFin() {
+    public Cliente getFin() {
         return fin;
     }
 
-    public void setFin(Gerente fin) {
+    public void setFin(Cliente fin) {
         this.fin = fin;
     }
 
-    public void agregarGerente(String noCuenta, String nombre, String contacto) {
-        Gerente nuevo = new Gerente(noCuenta, nombre, contacto);
+    // Método para agregar un cliente a la lista de gerentes
+    public void agregarCliente(int noCliente, int noCuenta, String direccion, String nombre, String contacto, float saldo) {
+        Cliente nuevoCliente = new Cliente(noCliente, noCuenta, direccion, nombre, contacto, saldo);
         if (inicio == null) {
-            inicio = nuevo;
-            fin = nuevo;
+            inicio = nuevoCliente;
+            fin = nuevoCliente;
         } else {
-            fin.setSiguiente(nuevo);
-            nuevo.setAnterior(fin);
-            fin = nuevo;
+            fin.setSiguiente(nuevoCliente);
+            nuevoCliente.setAnteror(fin);
+            fin = nuevoCliente;
         }
     }
 
-    public void eliminarGerente(String noCuenta) {
-        Gerente actual = inicio;
+    // Método para eliminar un cliente de la lista de gerentes
+    public void eliminarCliente(int noCuenta) {
+        Cliente actual = inicio;
         while (actual != null) {
-            if (actual.getNoGerente().equalsIgnoreCase(noCuenta)) {
+            if (actual.getNoCuenta() == noCuenta) {
                 if (actual == inicio && actual == fin) {
                     inicio = null;
                     fin = null;
                 } else if (actual == inicio) {
                     inicio = actual.getSiguiente();
-                    inicio.setAnterior(null);
+                    inicio.setAnteror(null);
                 } else if (actual == fin) {
-                    fin = fin.getAnterior();
+                    fin = fin.getAnteror();
                     fin.setSiguiente(null);
                 } else {
-                    actual.getAnterior().setSiguiente(actual.getSiguiente());
-                    actual.getSiguiente().setAnterior(actual.getAnterior());
+                    actual.getAnteror().setSiguiente(actual.getSiguiente());
+                    actual.getSiguiente().setAnteror(actual.getAnteror());
                 }
-                System.out.println("Gerente eliminado correctamente.");
+                System.out.println("Cliente eliminado correctamente.");
                 return;
             }
             actual = actual.getSiguiente();
         }
-        System.out.println("No se encontró ningún gerente con ese número de cuenta.");
+        System.out.println("No se encontró ningún cliente con ese número de cuenta.");
     }
 
-    public void mostrar() {
-        Gerente actual = inicio;
+    // Método para mostrar la lista de clientes
+    public void mostrarClientes() {
+        Cliente actual = inicio;
         while (actual != null) {
             System.out.println(actual.toString());
             actual = actual.getSiguiente();
