@@ -1,5 +1,4 @@
-package proyectointegradorbanca;
-
+package proyectointregradorbanca;
 public class Cliente {
     private int noCliente;
     private int noCuenta;
@@ -82,12 +81,8 @@ public class Cliente {
     public void setSaldo(float saldo) {
         this.saldo = saldo;
     }
-
-    
     @Override
     public String toString() {
-        return "Cliente{" + "noCliente=" + noCliente + ", noCuenta=" + noCuenta + ", direccion=" + direccion + ", nombre=" + nombre + ", contacto=" + contacto + '}';
-    }
-    
-    
+        return "---------------" + "\n" + "Numero de Cliente: " + noCliente + "\n" + "Num de Cuenta: " + noCuenta + "\n" + "Direccion: " + direccion + "\n" + "Nombre: " + nombre + "\n" + "Contactos: " + contacto  + "\n" + "---------------";
+    } 
 }
