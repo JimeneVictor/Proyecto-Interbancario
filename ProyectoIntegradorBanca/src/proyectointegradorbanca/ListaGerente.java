@@ -7,7 +7,6 @@ public class ListaGerente {
         inicio = null;
         fin = null;
     }
-
     public Cliente getInicio() {
         return inicio;
     }
@@ -25,8 +24,8 @@ public class ListaGerente {
     }
 
     // Método para agregar un cliente a la lista de gerentes
-    public void agregarCliente(int noCliente, int noCuenta, String direccion, String nombre, String contacto, float saldo) {
-        Cliente nuevoCliente = new Cliente(noCliente, noCuenta, direccion, nombre, contacto, saldo);
+    public void agregarCliente(int noCliente, int noCuenta, String direccion, String nombre, String contacto) {
+        Cliente nuevoCliente = new Cliente(noCliente, noCuenta, direccion, nombre, contacto);
         if (inicio == null) {
             inicio = nuevoCliente;
             fin = nuevoCliente;
@@ -36,7 +35,6 @@ public class ListaGerente {
             fin = nuevoCliente;
         }
     }
-
     // Método para eliminar un cliente de la lista de gerentes
     public void eliminarCliente(int noCuenta) {
         Cliente actual = inicio;
