@@ -9,15 +9,14 @@ public class Cliente {
     private Cliente anteror;
     private float saldo;
     
-    public Cliente(int noCliente, int noCuenta, String direccion, String nombre, String contacto, float saldo) {
+    public Cliente(int noCliente, int noCuenta, String direccion, String nombre, String contacto) {
         this.noCliente = noCliente;
         this.noCuenta = noCuenta;
         this.direccion = direccion;
         this.nombre = nombre;
         this.contacto = contacto;
-        this.saldo = saldo;
-    }
 
+    }
     public int getNoCliente() {
         return noCliente;
     }
@@ -81,6 +80,8 @@ public class Cliente {
     public void setSaldo(float saldo) {
         this.saldo = saldo;
     }
+
+    
     @Override
     public String toString() {
         return "---------------" + "\n" + "Numero de Cliente: " + noCliente + "\n" + "Num de Cuenta: " + noCuenta + "\n" + "Direccion: " + direccion + "\n" + "Nombre: " + nombre + "\n" + "Contactos: " + contacto  + "\n" + "---------------";
