@@ -1,24 +1,27 @@
 package proyectointregradorbanca;
 public class ListaGerente {
-    private Cliente inicio;
-    private Cliente fin;
+    private Gerente inicio;
+    private Gerente fin;
 
     public ListaGerente() {
         inicio = null;
         fin = null;
     }
-    public Cliente getInicio() {
+    public Gerente getInicio() {
         return inicio;
     }
 
-    public void setInicio(Cliente inicio) {
+    public void setInicio(Gerente inicio) {
         this.inicio = inicio;
     }
 
-    public Cliente getFin() {
+    public Gerente getFin() {
         return fin;
     }
 
+    public void setFin(Gerente fin) {
+        this.fin = fin;
+    }
     public void setFin(Cliente fin) {
         this.fin = fin;
     }
