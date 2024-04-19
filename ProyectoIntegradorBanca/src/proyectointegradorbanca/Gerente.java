@@ -23,11 +23,11 @@ public class Gerente {
         this.noCuenta = noCuenta;
     }
 
-    public int contrasenia() {
+    public int getContrasenia() {
         return contrasenia;
     }
 
-    public void contrasenia(int contrasenia) {
+    public void setContrasenia(int contrasenia) {
         this.contrasenia = contrasenia;
     }
 
@@ -74,5 +74,6 @@ public class Gerente {
     @Override
     public String toString() {
         return "noCuenta: " + noCuenta + "\n" + "Nombre: " + nombre + "\n" + "Contacto: " + contacto + "\n";
-    }   
+    }
+    
 }
